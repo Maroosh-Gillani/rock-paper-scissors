@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
 
     const buttons = document.querySelectorAll('button');
 
+    const resultsDiv = document.querySelector('.results');
+
     // Clicking the buttons
     buttons.forEach(button => {
         button.addEventListener('click', function () {
@@ -22,31 +24,42 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
     }
 
     function playRound(playerSelection, computerSelection) {
+
+        const resultPara = document.createElement('p');
+
+
         if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
-            return "Tie";
+            resultPara.textContent = "Tie";
+            resultsDiv.appendChild(resultPara);
         }
         else if (playerSelection.toUpperCase() == "ROCK") {
             if (computerSelection.toUpperCase() == "SCISSORS") {
-                return "You won! Rock beats Scissors.";
+                resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+                resultsDiv.appendChild(resultPara); 
             }
             else {
-                return "You lost. Paper beats Rock.";
+                resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
+                resultsDiv.appendChild(resultPara);
             }
         }
         else if (playerSelection.toUpperCase() == "PAPER") {
             if (computerSelection.toUpperCase() == "ROCK") {
-                return "You won! Paper beats Rock.";
+                resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+                resultsDiv.appendChild(resultPara);
             }
             else {
-                return "You lost. Scissors beat Paper.";
+                resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
+                resultsDiv.appendChild(resultPara);
             }
         }
         else if (playerSelection.toUpperCase() == "SCISSORS") {
             if (computerSelection.toUpperCase() == "PAPER") {
-                return "You won! Scissors beat Paper.";
+                resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+                resultsDiv.appendChild(resultPara);
             }
             else {
-                return "You lost. Rock beats Scissors.";
+                resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
+                resultsDiv.appendChild(resultPara);
             }
         }
     }
