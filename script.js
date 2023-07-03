@@ -85,24 +85,4 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
         }
         resultsDiv.appendChild(resultPara);
     }
-
-    // function reset() {
-    //     resetGame = true;
-    //     playerScore = 0;
-    //     computerScore = 0;
-    // }
-
-    // function game(playerSelection, computerSelection) {
-    //     let userSelection = prompt("Choose from Rock, Paper, & Scissors.");
-    //     let compSelection = getComputerChoice();
-    //     console.log("The computer chose: " + compSelection);
-    //     console.log(playRound(userSelection, compSelection));
-    // }
-
-    // function playFiveRounds(playerSelection, computerSelection) {
-    //     while (playerScore < 5 || computerScore < 5) {
-    //         playRound(playerSelection, computerSelection);
-    //     }
-    // }
-
 });
