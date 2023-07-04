@@ -1,0 +1,30 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.container {
+    flex-direction: column;
+}
+
+button {
+    margin: 4px;
+}
+
+.rpsButton {
+    width: 250px;
+    height: 250px;
+}
+
+img {
+    width: 240px;
+    height: 200px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

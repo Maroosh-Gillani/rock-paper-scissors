@@ -60,35 +60,35 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
-            resultPara.textContent = "Tie";
+            resultPara.textContent = `The computer chose ${computerSelection.toUpperCase()}. Tie`;
         }
         else if (playerSelection.toUpperCase() == "ROCK") {
             if (computerSelection.toUpperCase() == "SCISSORS") {
-                resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+                resultPara.textContent = `The computer chose ${computerSelection.toUpperCase()}. You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
                 playerScore++;
             }
             else {
-                resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
+                resultPara.textContent = `The computer chose ${computerSelection.toUpperCase()}. You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
                 computerScore++;
             }
         }
         else if (playerSelection.toUpperCase() == "PAPER") {
             if (computerSelection.toUpperCase() == "ROCK") {
-                resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+                resultPara.textContent = `The computer chose ${computerSelection.toUpperCase()}. You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
                 playerScore++;
             }
             else {
-                resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
+                resultPara.textContent = `The computer chose ${computerSelection.toUpperCase()}. You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
                 computerScore++;
             }
         }
         else if (playerSelection.toUpperCase() == "SCISSORS") {
             if (computerSelection.toUpperCase() == "PAPER") {
-                resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+                resultPara.textContent = `The computer chose ${computerSelection.toUpperCase()}. You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
                 playerScore++;
             }
             else {
-                resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
+                resultPara.textContent = `The computer chose ${computerSelection.toUpperCase()}. You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
                 computerScore++;
             }
         }
