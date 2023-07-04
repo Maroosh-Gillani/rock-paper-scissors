@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
     const resultsDiv = document.querySelector('.results');
     const resetButton = document.querySelector('.resetButton');
     const resultPara = document.createElement('p');
+    const playerScorePara = document.createElement('p');
+    const computerScorePara = document.createElement('p');
 
-    // let resetGame = false;
-    
     // Clicking the rock, paper, scissors buttons
     buttons.forEach(button => {
         button.addEventListener('click', function () {
@@ -17,19 +17,25 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
                 const computerChoice = getComputerChoice();
                 console.log(computerChoice);
 
-                const result = playRound(playerChoice, computerChoice);
-                // playFiveRounds(playerChoice, computerChoice);
+                playRound(playerChoice, computerChoice);
                 console.log(playerScore);
                 console.log(computerScore);
+
+                playerScorePara.textContent = `Your score: ${playerScore}`;
+                computerScorePara.textContent = `Computer score: ${computerScore}`;
+                resultsDiv.appendChild(playerScorePara);
+                resultsDiv.appendChild(computerScorePara);
+
             }
-            else if (playerScore === 5 || computerScore === 5) {
-                if (playerScore === 5) {
-                    resultPara.textContent = "You won the game!";
-                }
-                else {
-                    resultPara.textContent = "You lost.";
-                }
+
+            if (playerScore === 5) {
+                resultPara.textContent = "You won the game!";
                 resultsDiv.appendChild(resultPara);
+                disableButtons();
+            } else if (computerScore === 5) {
+                resultPara.textContent = "You lost.";
+                resultsDiv.appendChild(resultPara);
+                disableButtons();
             }
         });
     });
@@ -39,7 +45,10 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
         playerScore = 0;
         computerScore = 0;
         resultPara.textContent = "";
+        playerScorePara.textContent = "";
+        computerScorePara.textContent = "";
         resultsDiv.removeChild(resultPara);
+        enableButtons();
     });
 
 
@@ -56,33 +65,45 @@ document.addEventListener('DOMContentLoaded', function () { // Had issues withou
         else if (playerSelection.toUpperCase() == "ROCK") {
             if (computerSelection.toUpperCase() == "SCISSORS") {
                 resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
-                playerScore ++;
+                playerScore++;
             }
             else {
                 resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
-                computerScore ++;
+                computerScore++;
             }
         }
         else if (playerSelection.toUpperCase() == "PAPER") {
             if (computerSelection.toUpperCase() == "ROCK") {
                 resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
-                playerScore ++;
+                playerScore++;
             }
             else {
                 resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
-                computerScore ++;
+                computerScore++;
             }
         }
         else if (playerSelection.toUpperCase() == "SCISSORS") {
             if (computerSelection.toUpperCase() == "PAPER") {
                 resultPara.textContent = `You won! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
-                playerScore ++;
+                playerScore++;
             }
             else {
                 resultPara.textContent = `You lost. ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;
-                computerScore ++;
+                computerScore++;
             }
         }
         resultsDiv.appendChild(resultPara);
+    }
+
+    function disableButtons() {
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+    }
+
+    function enableButtons() {
+        buttons.forEach(button => {
+            button.disabled = false;
+        });
     }
 });
